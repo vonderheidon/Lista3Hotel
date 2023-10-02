@@ -16,12 +16,4 @@ public class QuartoLuxo extends Quarto {
         super.exibirInfo();
         System.out.printf("\nPossui hidromassagem: %s", this.possuiHidromassagem ? "Sim" : "Nao");
     }
-    @Override
-    public boolean verificarDisponibilidade() {
-        return super.verificarDisponibilidade();
-    }
-    @Override
-    public void reservarQuarto() {
-        super.reservarQuarto();
-    }
 }

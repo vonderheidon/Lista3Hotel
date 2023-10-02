@@ -12,12 +12,4 @@ public abstract class HospedeIdoso extends Hospede {
         super.exibirInfo();
         System.out.printf("\nPrecisa de cadeira de rodas: %s", this.precisaCadeiraDeRodas ? "Sim" : "Nao");
     }
-    @Override
-    public void solicitarServicoDeQuarto() {
-        super.solicitarServicoDeQuarto();
-    }
-    @Override
-    public void reservarMesaRestaurante() {
-        super.reservarMesaRestaurante();
-    }
 }

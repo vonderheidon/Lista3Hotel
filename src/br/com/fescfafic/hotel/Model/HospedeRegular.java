@@ -12,12 +12,4 @@ public abstract class HospedeRegular extends Hospede {
         super.exibirInfo();
         System.out.printf("\nPossui pet: %s", this.possuiPet ? "Sim" : "Nao");
     }
-    @Override
-    public void solicitarServicoDeQuarto() {
-        super.solicitarServicoDeQuarto();
-    }
-    @Override
-    public void reservarMesaRestaurante() {
-        super.reservarMesaRestaurante();
-    }
 }
