@@ -6,6 +6,7 @@ public class QuartoSimples extends Quarto{
     public QuartoSimples(int numeroQuarto, int qtdCama, double precoPorNoite, boolean disponibilidade,
                          boolean possuiFrigobar, boolean possuiArCondicionado, int qtdHospedes) {
         super(numeroQuarto, qtdCama, precoPorNoite, disponibilidade, possuiFrigobar);
+        super.tipo = "Simples";
         this.possuiArCondicionado = possuiArCondicionado;
         this.listaHospedes = new Hospede[qtdHospedes];
     }

@@ -6,6 +6,7 @@ public class QuartoCompartilhado extends Quarto{
     public Hospede[] listaHospedes;
     public QuartoCompartilhado(int numeroQuarto, int qtdCama, double precoPorNoite, boolean disponibilidade, boolean possuiFrigobar, int qtdArmarios) {
         super(numeroQuarto, qtdCama, precoPorNoite, disponibilidade, possuiFrigobar);
+        super.tipo = "Compartilhado";
         this.qtdArmarios = qtdArmarios;
         this.camasReservadas = 0;
         this.listaHospedes = new Hospede[qtdCama];

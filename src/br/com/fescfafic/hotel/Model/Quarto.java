@@ -6,6 +6,7 @@ public class Quarto {
     public double precoPorNoite;
     public boolean disponibilidade;
     public boolean possuiFrigobar;
+    public String tipo;
 
     public Quarto (int numeroQuarto, int qtdCama, double precoPorNoite, boolean disponibilidade, boolean possuiFrigobar) {
         this.numeroQuarto = numeroQuarto;
