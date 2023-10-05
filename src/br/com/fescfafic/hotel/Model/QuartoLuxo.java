@@ -22,11 +22,20 @@ public class QuartoLuxo extends Quarto {
     @Override
     public void exibirInfo() {
         super.exibirInfo();
-        System.out.printf("\nPossui hidromassagem: %s\n", this.possuiHidromassagem ? "Sim" : "Nao");
+        System.out.printf("Possui hidromassagem: %s\n", this.possuiHidromassagem ? "Sim" : "Nao");
         System.out.printf("Possui varanda: %s\n", this.possuiVaranda ? "Sim" : "Nao");
         System.out.printf("Quantidade de banheiros: %d\n", this.qtdBanheiros);
         System.out.printf("Fornece roupoes: %s\n", this.forneceRoupoes ? "Sim" : "Nao");
         System.out.printf("Possui mini-bar: %s", this.possuiMiniBar ? "Sim" : "Nao");
+    }
+    @Override
+    public boolean verificarDisponibilidade() {
+        for (int i = 0; i < this.listaHospedes.length; i++) {
+            if (this.listaHospedes[i] == null) {
+                return true;
+            }
+        }
+        return false;
     }
     @Override
     public void adicionarHospede(Hospede hospede) {

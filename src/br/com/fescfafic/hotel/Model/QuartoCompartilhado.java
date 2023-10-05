@@ -22,7 +22,7 @@ public class QuartoCompartilhado extends Quarto{
     @Override
     public void exibirInfo() {
         super.exibirInfo();
-        System.out.printf("\nQuantidade de camas: %d\n", this.qtdCama);
+        System.out.printf("Quantidade de camas: %d\n", this.qtdCama);
         System.out.printf("Quantidade de armarios: %d\n", this.qtdArmarios);
         System.out.printf("Possui frigobar: %s\n", this.possuiFrigobar ? "Sim" : "Nao");
         System.out.printf("Fornece toalhas: %s", this.forneceToalhas ? "Sim" : "Nao");
