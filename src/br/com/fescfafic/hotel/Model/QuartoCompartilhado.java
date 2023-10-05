@@ -1,25 +1,35 @@
 package br.com.fescfafic.hotel.Model;
 
 public class QuartoCompartilhado extends Quarto{
-    public int qtdArmarios;
+    public int qtdCama;
     public int camasReservadas;
+    public int qtdArmarios;
+    public boolean possuiFrigobar;
+    public boolean forneceToalhas;
     public Hospede[] listaHospedes;
-    public QuartoCompartilhado(int numeroQuarto, int qtdCama, double precoPorNoite, boolean disponibilidade, boolean possuiFrigobar, int qtdArmarios) {
-        super(numeroQuarto, qtdCama, precoPorNoite, disponibilidade, possuiFrigobar);
+    public QuartoCompartilhado(int numeroQuarto, double precoPorNoite, boolean disponibilidade, int qtdCama,
+                               int qtdArmarios, boolean possuiFrigobar, boolean forneceToalhas) {
+        super(numeroQuarto, precoPorNoite, disponibilidade);
         super.tipo = "Compartilhado";
-        this.qtdArmarios = qtdArmarios;
+        this.qtdCama = qtdCama;
         this.camasReservadas = 0;
+        this.qtdArmarios = qtdArmarios;
+        this.possuiFrigobar = possuiFrigobar;
+        this.forneceToalhas = forneceToalhas;
         this.listaHospedes = new Hospede[qtdCama];
     }
 
     @Override
     public void exibirInfo() {
         super.exibirInfo();
-        System.out.printf("\nQuantidade de armarios: %d", this.qtdArmarios);
+        System.out.printf("\nQuantidade de camas: %d\n", this.qtdCama);
+        System.out.printf("Quantidade de armarios: %d\n", this.qtdArmarios);
+        System.out.printf("Possui frigobar: %s\n", this.possuiFrigobar ? "Sim" : "Nao");
+        System.out.printf("Fornece toalhas: %s", this.forneceToalhas ? "Sim" : "Nao");
     }
     @Override
     public boolean verificarDisponibilidade() {
-        int camasDisponiveis = super.qtdCama - this.camasReservadas;
+        int camasDisponiveis = this.qtdCama - this.camasReservadas;
         if (camasDisponiveis > 0) {
             return true;
         } else {
@@ -28,14 +38,18 @@ public class QuartoCompartilhado extends Quarto{
     }
     @Override
     public void reservarQuarto() {
-        if (this.verificarDisponibilidade() == true) {
-            System.out.printf("\nUma cama do quarto compartilhado foi reservada com sucesso.");
-            this.camasReservadas++;
-            if (this.camasReservadas >= super.qtdCama) {
-                super.disponibilidade = false;
+        this.camasReservadas++;
+        if (this.camasReservadas >= this.qtdCama) {
+            super.disponibilidade = false;
+        }
+    }
+    public void adicionarHospede(Hospede hospede) {
+        for (int i = 0; i < this.listaHospedes.length; i++) {
+            if (this.listaHospedes[i] == null) {
+                this.listaHospedes[i] = hospede;
+                System.out.printf("\nO hospede %s foi adicionado ao quarto nº %d.", hospede.nome, this.numeroQuarto);
+                return;
             }
-        } else {
-            System.out.printf("\nNao foi possivel reservar uma cama do quarto compartilhado, estao todas ocupadas.");
         }
     }
 }

@@ -7,29 +7,12 @@ public class Main {
     public static void main(String[] args) {
         QuartoCompartilhado quartoCompartilhado = new QuartoCompartilhado(
                 25,
-                5,
-                22.50,
+                34,
                 true,
-                false,
-                5
-        );
-        QuartoLuxo quartoLuxo = new QuartoLuxo(
-                26,
-                2,
-                76,
+                3,
+                3,
                 true,
-                true,
-                true,
-                3
-        );
-        QuartoSimples quartoSimples = new QuartoSimples(
-                27,
-                1,
-                40.30,
-                true,
-                true,
-                false,
-                2
+                false
         );
         Hotel hotel = new Hotel(
                 "Beira mar",
@@ -39,9 +22,22 @@ public class Main {
                 true,
                 3
         );
+        Adolescente adolescente = new Adolescente(
+                "Felipe",
+                "404004",
+                "Masculino",
+                16,
+                false,
+                false
+        );
         hotel.adicionarQuarto(quartoLuxo);
         hotel.adicionarQuarto(quartoCompartilhado);
         hotel.adicionarQuarto(quartoSimples);
-        hotel.exibirInfo();
+        hotel.fazerReserva(25, adolescente);
+        hotel.fazerReserva(25, adolescente);
+        hotel.fazerReserva(25, adolescente);
+        hotel.fazerReserva(25, adolescente);
+        hotel.fazerReserva(25, adolescente);
+        hotel.fazerReserva(25, adolescente);
     }
 }

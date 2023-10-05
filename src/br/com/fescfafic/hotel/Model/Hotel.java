@@ -47,7 +47,27 @@ public class Hotel {
             System.out.print("Esse hotel eh o primeiro do mundo que nao tem quartos.");
         }
     }
-    public void fazerReserva() {
-
+    public Quarto encontrarQuartoPorNumero(int numeroQuarto) {
+        for (int i = 0; i < this.listaQuartos.length; i++) {
+            if (this.listaQuartos[i] != null) {
+                if (this.listaQuartos[i].numeroQuarto == numeroQuarto) {
+                    return this.listaQuartos[i];
+                }
+            }
+        }
+        return null;
+    }
+    public void fazerReserva(int numeroQuarto, Hospede hospede) {
+        Quarto quarto = encontrarQuartoPorNumero(numeroQuarto);
+        if (quarto != null) {
+            if (quarto.verificarDisponibilidade() == true) {
+                quarto.reservarQuarto();
+                quarto.adicionarHospede(hospede);
+            } else {
+                System.out.printf("\nO quarto %d esta indisponivel para novas reservas.", numeroQuarto);
+            }
+        } else {
+            System.out.printf("\nO quarto %d não existe nesse hotel.", numeroQuarto);
+        }
     }
 }
